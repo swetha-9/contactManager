@@ -1,0 +1,64 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "code": 0,
+      "message": "success",
+      "contact_person": {
+        "contact_id": 460000000026049,
+        "contact_person_id": 460000000026051,
+        "salutation": "Mr",
+        "first_name": "Will",
+        "last_name": "Smith",
+        "email": "test@zylker.org",
+        "phone": 1234,
+        "mobile": 1234,
+        "is_primary_contact": true,
+        "skype": "zoho",
+        "designation": "Sales Engineer",
+        "department": "Sales",
+        "is_added_in_portal": true
+      }
+    },
+    {
+      "id": 2,
+      "code": 0,
+      "message": "success",
+      "contact_person": {
+        "contact_id": 460000000026050,
+        "contact_person_id": 460000000026051,
+        "salutation": "Mr",
+        "first_name": "Thor",
+        "last_name": "Avenger",
+        "email": "test@zylker.org",
+        "phone": 12345678,
+        "mobile": 1234,
+        "is_primary_contact": true,
+        "skype": "zoho",
+        "designation": "Developer",
+        "department": "Sales",
+        "is_added_in_portal": true
+      }
+    },
+    {
+      "code": 0,
+      "message": "success",
+      "contact_person": {
+        "contact_id": 1,
+        "contact_person_id": 2,
+        "salutation": "Miss",
+        "first_name": "S",
+        "last_name": "R",
+        "email": "s@gmail.com",
+        "phone": 1,
+        "mobile": 1,
+        "is_primary_contact": true,
+        "skype": "Z",
+        "designation": "dev",
+        "department": "IT",
+        "is_added_in_portal": false
+      },
+      "id": 3
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+<h2 style="text-align: center;">Create Contact List</h2>
+<mat-card>
+<form [formGroup]="form">
+<mat-form-field appearance="fill">
+    <mat-label>Salutation</mat-label>
+    <mat-select single formControlName="salutation">
+      <mat-option *ngFor="let salutation of salutationList" [value]="salutation">{{salutation}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill" style="margin-left:100px;">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName">
+    <mat-error *ngIf="form.controls.firstName.errors?.required">FirstName is required</mat-error>
+</mat-form-field>
+<mat-form-field appearance="fill" style="margin-left:100px;">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName">
+    <mat-error *ngIf="form.controls.lastName.errors?.required">LastName is required</mat-error>
+</mat-form-field>
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="form.controls.email.errors?.required">Email is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="margin-left:100px;">
+        <mat-label>Phone</mat-label>
+        <input matInput type="number" formControlName="phone">
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="margin-left:100px;">
+        <mat-label>Mobile</mat-label>
+        <input  type="number" matInput formControlName="mobile">
+    </mat-form-field>
+</div>
+    <div>
+    <mat-form-field appearance="fill">
+        <mat-label>Designation</mat-label>
+        <input matInput formControlName="designation">
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="margin-left:100px;">
+        <mat-label>Department</mat-label>
+        <input matInput formControlName="department">
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="margin-left:100px;">
+        <mat-label>Contact ID</mat-label>
+        <input type="number" matInput formControlName="contactId">
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>Contact Person ID</mat-label>
+        <input type="number" matInput formControlName="contactPersonId">
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="margin-left:100px;">
+        <mat-label>Skype</mat-label>
+        <input matInput formControlName="skype">
+    </mat-form-field>
+</div>
+<div>
+<mat-slide-toggle [(ngModel)] ="isPrimary" [ngModelOptions]="{standalone: true}">Primary contact</mat-slide-toggle>
+<mat-slide-toggle style="margin-left:500px;" [(ngModel)] ="isAdded" [ngModelOptions]="{standalone: true}">Added contact</mat-slide-toggle>
+</div>
+<div style="margin-left: 400px;">
+<button [disabled]="form.invalid" mat-raised-button  color="primary" (click)="createNewContactList()">Create</button>
+<button mat-raised-button  color="primary" style="margin-left: 10px;" (click)="navigateToList()">Cancel</button>
+</div>
+</form>
+</mat-card>
