@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContactmanagerService } from 'src/app/shared/service/contactmanager.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DiaglogBoxComponent } from '../../diaglog-box/diaglog-box.component';
 
 @Component({
   selector: 'app-create-contacts',
@@ -13,7 +15,7 @@ export class CreateContactsComponent implements OnInit {
   form: FormGroup;
   isPrimary = false;
   isAdded = false;
-  constructor(private route: Router,private fb: FormBuilder, private contactSrv: ContactmanagerService) {
+  constructor(private route: Router,private fb: FormBuilder, private contactSrv: ContactmanagerService, private dialog: MatDialog,) {
     this.form = this.fb.group({
       salutation: ['',[Validators.required]],
       firstName: ['',[Validators.required]],
@@ -54,7 +56,7 @@ export class CreateContactsComponent implements OnInit {
         "is_added_in_portal": this.isAdded
       }
     }
-    console.log(newList);
-    this.contactSrv.createContactList(newList).subscribe((value) => console.log(value))
+    this.contactSrv.createContactList(newList);
+    this.dialog.open(DiaglogBoxComponent);
   }
 }

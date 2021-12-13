@@ -16,12 +16,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { DiaglogBoxComponent } from './container/diaglog-box/diaglog-box.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ViewcontactComponent } from './container/viewcontact/viewcontact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListcontactsComponent,
-    CreateContactsComponent
+    CreateContactsComponent,
+    DiaglogBoxComponent,
+    ViewcontactComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
