@@ -15,17 +15,21 @@ export class ListcontactsComponent implements OnInit {
   constructor(private contactSrv: ContactmanagerService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-   this.contactSrv.getContactList().subscribe((contactLists) => {
-     console.log(contactLists, ".tests");
-    this.dataSource = contactLists;
-   });
+
+  //  this.contactSrv.getContactList().subscribe((contactLists) => {
+  //    console.log(contactLists, ".tests");
+  //   this.dataSource = contactLists;
+  //  });
+
+     this.dataSource = this.contactSrv.getContactList();
+
  }
 
  navigateToCreate() {
   this.router.navigate(["createContacts"]);
  }
+ 
  ViewAt(value) {
-   console.log(value);
    this.dialog.open(ViewcontactComponent,{data: value});
  }
 }
