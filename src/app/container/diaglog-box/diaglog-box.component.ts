@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
 })
 export class DiaglogBoxComponent implements OnInit {
 
-  constructor(private dialog:MatDialogRef<DiaglogBoxComponent>,private router: Router) {
+  constructor(private dialog: MatDialogRef<DiaglogBoxComponent>, private router: Router) {
     dialog.disableClose = true;
   }
 
   ngOnInit(): void {
   }
-  accept(){
-    this.dialog.close({event:'true'});
+  accept() {
+    this.dialog.close({ event: 'true' });
     this.router.navigate(["contacts"]);
   }
 }

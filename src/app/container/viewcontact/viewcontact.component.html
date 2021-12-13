@@ -1,9 +1,9 @@
-<p>You opened 
-<b>{{data.contact_person.salutation +" " +data.contact_person.first_name+" "+data.contact_person.last_name}}</b>
- profile
+<p>You opened
+  <b>{{data.contact_person.salutation +" " +data.contact_person.first_name+" "+data.contact_person.last_name}}</b>
+  profile
 </p>
 <div>Designation: {{data.contact_person.designation}}</div>
 <div>Phone: {{data.contact_person.phone}}</div>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close (click)= "accept()">Okay</button>
-  </mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="accept()">Okay</button>
+</mat-dialog-actions>

@@ -8,13 +8,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ViewcontactComponent implements OnInit {
 
-  constructor( @Inject(MAT_DIALOG_DATA) public data, private dialog: MatDialogRef<any>) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data, private dialog: MatDialogRef<any>) {
     dialog.disableClose = true;
-   }
+  }
 
   ngOnInit(): void {
   }
-  accept(){
-    this.dialog.close({event:'true'});
+  accept() {
+    this.dialog.close({ event: 'true' });
   }
 }

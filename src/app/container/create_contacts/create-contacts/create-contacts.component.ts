@@ -15,21 +15,21 @@ export class CreateContactsComponent implements OnInit {
   form: FormGroup;
   isPrimary = false;
   isAdded = false;
-  constructor(private route: Router,private fb: FormBuilder, private contactSrv: ContactmanagerService, private dialog: MatDialog,) {
+  constructor(private route: Router, private fb: FormBuilder, private contactSrv: ContactmanagerService, private dialog: MatDialog,) {
     this.form = this.fb.group({
-      salutation: ['',[Validators.required]],
-      firstName: ['',[Validators.required]],
+      salutation: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['',[Validators.required]],
-      mobile: ['',[Validators.required]],
-      designation: ['',[Validators.required]],
-      department: ['',[Validators.required]],
-      contactId: ['',[Validators.required]],
-      contactPersonId: ['',[Validators.required]],
-      skype: ['',[Validators.required]]
+      phone: ['', [Validators.required]],
+      mobile: ['', [Validators.required]],
+      designation: ['', [Validators.required]],
+      department: ['', [Validators.required]],
+      contactId: ['', [Validators.required]],
+      contactPersonId: ['', [Validators.required]],
+      skype: ['', [Validators.required]]
     })
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -38,22 +38,22 @@ export class CreateContactsComponent implements OnInit {
   }
   createNewContactList() {
     const newList = {
-      "code": 0,
-      "message": "success",
-      "contact_person": {
-        "contact_id": Number(this.form.controls.contactId.value),
-        "contact_person_id": Number(this.form.controls.contactPersonId.value) ,
-        "salutation": this.form.controls.salutation.value,
-        "first_name": this.form.controls.firstName.value,
-        "last_name": this.form.controls.lastName.value,
-        "email": this.form.controls.email.value,
-        "phone": Number(this.form.controls.phone.value),
-        "mobile": Number(this.form.controls.mobile.value),
-        "is_primary_contact": this.isPrimary,
-        "skype": this.form.controls.skype.value,
-        "designation": this.form.controls.designation.value,
-        "department": this.form.controls.department.value,
-        "is_added_in_portal": this.isAdded
+      code: 0,
+      message: 'success',
+      contact_person: {
+        contact_id: Number(this.form.controls.contactId.value),
+        contact_person_id: Number(this.form.controls.contactPersonId.value),
+        salutation: this.form.controls.salutation.value,
+        first_name: this.form.controls.firstName.value,
+        last_name: this.form.controls.lastName.value,
+        email: this.form.controls.email.value,
+        phone: Number(this.form.controls.phone.value),
+        mobile: Number(this.form.controls.mobile.value),
+        is_primary_contact: this.isPrimary,
+        skype: this.form.controls.skype.value,
+        designation: this.form.controls.designation.value,
+        department: this.form.controls.department.value,
+        is_added_in_portal: this.isAdded
       }
     }
     this.contactSrv.createContactList(newList);

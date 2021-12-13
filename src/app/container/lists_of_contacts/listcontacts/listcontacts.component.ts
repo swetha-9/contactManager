@@ -11,25 +11,25 @@ import { ViewcontactComponent } from '../../viewcontact/viewcontact.component';
 })
 export class ListcontactsComponent implements OnInit {
   dataSource: any = [];
-  displayedColumns: string[] = ['salutation', 'first_name', 'last_name', 'email','phone','designation', 'action'];
+  displayedColumns: string[] = ['salutation', 'first_name', 'last_name', 'email', 'phone', 'designation', 'action'];
   constructor(private contactSrv: ContactmanagerService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
 
-  //  this.contactSrv.getContactList().subscribe((contactLists) => {
-  //    console.log(contactLists, ".tests");
-  //   this.dataSource = contactLists;
-  //  });
+    //  this.contactSrv.getContactList().subscribe((contactLists) => {
+    //    console.log(contactLists, ".tests");
+    //   this.dataSource = contactLists;
+    //  });
 
-     this.dataSource = this.contactSrv.getContactList();
+    this.dataSource = this.contactSrv.getContactList();
 
- }
+  }
 
- navigateToCreate() {
-  this.router.navigate(["createContacts"]);
- }
- 
- ViewAt(value) {
-   this.dialog.open(ViewcontactComponent,{data: value});
- }
+  navigateToCreate() {
+    this.router.navigate(["createContacts"]);
+  }
+
+  ViewAt(value) {
+    this.dialog.open(ViewcontactComponent, { data: value });
+  }
 }

@@ -1,50 +1,50 @@
 <h3> Present Number of contacts - {{dataSource.length}}</h3>
 <div style="text-align: right;">
-<button mat-raised-button  color="primary" (click)= "navigateToCreate()"><mat-icon>add</mat-icon>Create Contact</button>
+  <button mat-raised-button color="primary" (click)="navigateToCreate()">
+    <mat-icon>add</mat-icon>Create Contact
+  </button>
 </div>
 <div style="margin-top: 10px;">
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
- 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
     <ng-container matColumnDef="salutation">
       <th mat-header-cell *matHeaderCellDef> salutation </th>
       <td mat-cell *matCellDef="let element"> {{element?.contact_person?.salutation}} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="first_name">
       <th mat-header-cell *matHeaderCellDef> First Name </th>
       <td mat-cell *matCellDef="let element"> {{element?.contact_person?.first_name}} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="last_name">
       <th mat-header-cell *matHeaderCellDef> Last Name </th>
       <td mat-cell *matCellDef="let element"> {{element?.contact_person?.last_name}} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef> Email </th>
       <td mat-cell *matCellDef="let element"> {{element?.contact_person?.email}} </td>
     </ng-container>
 
     <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef> Phone </th>
-        <td mat-cell *matCellDef="let element"> {{element?.contact_person?.phone}} </td>
-      </ng-container>
+      <th mat-header-cell *matHeaderCellDef> Phone </th>
+      <td mat-cell *matCellDef="let element"> {{element?.contact_person?.phone}} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="designation">
-        <th mat-header-cell *matHeaderCellDef> Designation </th>
-        <td mat-cell *matCellDef="let element"> {{element?.contact_person?.designation}} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef > Action </th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-icon-button [ngStyle]="{'color':'blue'}" (click)="ViewAt(element)">
-            <mat-icon class="mat-18">open_in_new</mat-icon>
-          </button>
-          </ng-container>
+    <ng-container matColumnDef="designation">
+      <th mat-header-cell *matHeaderCellDef> Designation </th>
+      <td mat-cell *matCellDef="let element"> {{element?.contact_person?.designation}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button [ngStyle]="{'color':'blue'}" (click)="ViewAt(element)">
+          <mat-icon class="mat-18">open_in_new</mat-icon>
+        </button>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
-
-  
