@@ -1,0 +1,30 @@
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-left: 118px;
+  }
+  .profile{
+    margin-left: 100px;
+  }
+
+  .mat-18{
+      margin-left: 100px;
+      color: blueviolet;
+      position: relative;
+      top: 6px;
+  }
+  .matvalue{
+      margin-bottom: 90px;
+  }
+  mat-card{
+    width: 350px;
+    height: 400px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+    margin-top: 100px;
+}
+.cancel{
+    margin-left:118px;
+}

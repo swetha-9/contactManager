@@ -16,9 +16,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { DiaglogBoxComponent } from './container/diaglog-box/diaglog-box.component';
+import { DiaglogBoxComponent } from './modal/diaglog-box/diaglog-box.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ViewcontactComponent } from './container/viewcontact/viewcontact.component';
+import { UpdatecontactComponent } from './modal/updatecontact/updatecontact.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ViewcontactComponent } from './container/view_contact/viewcontact/viewcontact.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ViewcontactComponent } from './container/viewcontact/viewcontact.compon
     ListcontactsComponent,
     CreateContactsComponent,
     DiaglogBoxComponent,
+    UpdatecontactComponent,
     ViewcontactComponent
   ],
   imports: [
@@ -44,6 +47,7 @@ import { ViewcontactComponent } from './container/viewcontact/viewcontact.compon
     MatInputModule,
     MatSlideToggleModule,
     MatDialogModule,
+    MatTooltipModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

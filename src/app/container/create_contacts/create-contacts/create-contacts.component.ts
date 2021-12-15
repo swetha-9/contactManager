@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContactmanagerService } from 'src/app/shared/service/contactmanager.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DiaglogBoxComponent } from '../../diaglog-box/diaglog-box.component';
+import { DiaglogBoxComponent } from '../../../modal/diaglog-box/diaglog-box.component';
 
 @Component({
   selector: 'app-create-contacts',
@@ -15,7 +15,7 @@ export class CreateContactsComponent implements OnInit {
   form: FormGroup;
   isPrimary = false;
   isAdded = false;
-  constructor(private route: Router, private fb: FormBuilder, private contactSrv: ContactmanagerService, private dialog: MatDialog,) {
+  constructor(public router: Router, private fb: FormBuilder, public contactSrv: ContactmanagerService, private dialog: MatDialog,) {
     this.form = this.fb.group({
       salutation: ['', [Validators.required]],
       firstName: ['', [Validators.required]],
@@ -33,12 +33,10 @@ export class CreateContactsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  navigateToList() {
-    this.route.navigate(['contacts'])
-  }
+
   createNewContactList() {
     const newList = {
-      code: 0,
+      code: this.contactSrv.getContactList().length + 1,
       message: 'success',
       contact_person: {
         contact_id: Number(this.form.controls.contactId.value),
@@ -53,7 +51,7 @@ export class CreateContactsComponent implements OnInit {
         skype: this.form.controls.skype.value,
         designation: this.form.controls.designation.value,
         department: this.form.controls.department.value,
-        is_added_in_portal: this.isAdded
+        is_added_in_portal: true
       }
     }
     this.contactSrv.createContactList(newList);

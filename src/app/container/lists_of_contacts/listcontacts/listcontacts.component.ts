@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactmanagerService } from '../../../../../src/app/shared/service/contactmanager.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ViewcontactComponent } from '../../viewcontact/viewcontact.component';
+import { UpdatecontactComponent } from '../../../modal/updatecontact/updatecontact.component';
+
 
 @Component({
   selector: 'app-listcontacts',
@@ -11,25 +12,33 @@ import { ViewcontactComponent } from '../../viewcontact/viewcontact.component';
 })
 export class ListcontactsComponent implements OnInit {
   dataSource: any = [];
-  displayedColumns: string[] = ['salutation', 'first_name', 'last_name', 'email', 'phone', 'designation', 'action'];
-  constructor(private contactSrv: ContactmanagerService, private router: Router, private dialog: MatDialog) { }
+  displayedColumns: string[] = ['profile', 'salutation', 'first_name', 'last_name', 'email', 'phone', 'primary', 'designation', 'action'];
+  constructor(private contactSrv: ContactmanagerService,
+     public router: Router, 
+     private dialog: MatDialog) {
+      this.contactSrv.updateStatus$
+      .subscribe((status) => {
+      if(status) {
+        this.dataSource = JSON.parse(localStorage.getItem('lists'));
+      }
+      });
+      }
 
   ngOnInit(): void {
-
-    //  this.contactSrv.getContactList().subscribe((contactLists) => {
-    //    console.log(contactLists, ".tests");
-    //   this.dataSource = contactLists;
-    //  });
-
-    this.dataSource = this.contactSrv.getContactList();
-
+    this.contactSrv.getContactList()
+    this.dataSource = JSON.parse(localStorage.getItem('lists'));
   }
 
-  navigateToCreate() {
-    this.router.navigate(["createContacts"]);
+  viewList(value) {
+   this.contactSrv.shareData(value);
+   this.router.navigateByUrl('viewContacts');
   }
 
-  ViewAt(value) {
-    this.dialog.open(ViewcontactComponent, { data: value });
+  removeAt(removeList) {
+  this.contactSrv.removeFromContactList(removeList);
+  this.dataSource = JSON.parse(localStorage.getItem('lists'));
+  }
+  updateList(listToUpdate) {
+    this.dialog.open(UpdatecontactComponent, { data: listToUpdate });
   }
 }

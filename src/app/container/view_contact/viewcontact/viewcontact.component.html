@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+    <div class="image">
+    <img mat-card-image src= "assets/images/avatar.png" alt="Avatar" class="avatar">
+    </div>
+    <mat-card-header>
+      <div class="example-header"></div>
+      <mat-card-title class="profile">
+        {{data?.contact_person?.salutation +" " +data.contact_person?.first_name+" "+data?.contact_person?.last_name}}
+     </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div><mat-icon class="mat-18">work</mat-icon><span class="matvalue"><b>Designation:</b> {{data?.contact_person?.designation}}</span></div>
+        <div><mat-icon class="mat-18">contact_phone</mat-icon><span class="matvalue"><b>Phone:</b> {{data?.contact_person?.phone}}</span></div>
+        <div><mat-icon class="mat-18">email</mat-icon><span class="matvalue"><b>Email:</b> {{data?.contact_person?.email}}</span></div>
+        <div><mat-icon class="mat-18">dialer_sip</mat-icon><span class="matvalue"><b>Skype:</b> {{data?.contact_person?.skype}}</span></div>
+        <div><mat-icon class="mat-18">people</mat-icon><span class="matvalue"><b>Contact ID:</b> {{data?.contact_person?.contact_id}}</span></div>
+        <div><mat-icon class="mat-18">work_outline</mat-icon><span class="matvalue"><b>Department:</b> {{data?.contact_person?.department}}</span></div>
+    </mat-card-content>
+    <button class="cancel" mat-raised-button color="primary" (click)="router.navigateByUrl('contacts')">Cancel</button>
+    </mat-card>

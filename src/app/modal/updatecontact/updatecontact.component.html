@@ -1,4 +1,4 @@
-<h2 style="text-align: center;">Create New contact</h2>
+<h2 style="text-align: center;">Update contact</h2>
 <mat-card>
     <form [formGroup]="form">
         <mat-form-field appearance="fill">
@@ -59,14 +59,14 @@
         <div>
             <mat-slide-toggle [(ngModel)]="isPrimary" [ngModelOptions]="{standalone: true}">Primary contact
             </mat-slide-toggle>
-            <mat-slide-toggle style="margin-left:500px;" [(ngModel)]="isAdded" [ngModelOptions]="{standalone: true}">
+            <mat-slide-toggle style="margin-left:500px;" [ngModel]="isAdded" [ngModelOptions]="{standalone: true}" [disabled]= "true">
                 Added contact</mat-slide-toggle>
         </div>
         <div style="margin-left: 400px;">
             <button [disabled]="form.invalid" mat-raised-button color="primary"
-                (click)="createNewContactList()">Create</button>
+                (click)="updateContactList()">Update</button>
             <button mat-raised-button color="primary" style="margin-left: 10px;"
-                (click)="router.navigateByUrl('contacts')">Cancel</button>
+                (click)="navigateToList()">Cancel</button>
         </div>
     </form>
 </mat-card>
