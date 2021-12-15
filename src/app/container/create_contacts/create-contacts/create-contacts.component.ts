@@ -35,8 +35,14 @@ export class CreateContactsComponent implements OnInit {
   }
 
   createNewContactList() {
+    let codeCount = [0];
+     if(JSON.parse(localStorage.getItem('lists'))?.length) {
+    JSON.parse(localStorage.getItem('lists')).filter((codeCheck) => {
+    return codeCheck.code ? codeCount.push(codeCheck.code) : codeCount.push(1);
+    });
+  }
     const newList = {
-      code: this.contactSrv.getContactList().length + 1,
+      code: Math.max(...codeCount) + 1,
       message: 'success',
       contact_person: {
         contact_id: Number(this.form.controls.contactId.value),

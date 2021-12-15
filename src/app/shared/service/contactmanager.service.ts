@@ -32,7 +32,7 @@ export class ContactmanagerService {
   constructor() { }
 
   getContactList(): any {
-    if (this.mockList.length === 1 && !JSON.stringify(this.mockList).length) {
+    if (this.mockList.length === 1 && !JSON.parse(localStorage.getItem('lists')) && !JSON.parse(localStorage.getItem('lists'))?.length) {
       localStorage.setItem('lists', JSON.stringify(this.mockList));
     }
     return this.mockList;
