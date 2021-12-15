@@ -59,7 +59,6 @@ export class UpdatecontactComponent implements OnInit {
         is_added_in_portal: true
       }
     }
-    console.log(this.isPrimary);
     this.contactManagerSrvc.updateContactList(updateList);
     this.dialog.close({ event: 'true' });
   }

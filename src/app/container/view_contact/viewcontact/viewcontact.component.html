@@ -1,3 +1,4 @@
+<div *ngIf= data>
 <mat-card class="example-card">
     <div class="image">
     <img mat-card-image src= "assets/images/avatar.png" alt="Avatar" class="avatar">
@@ -18,3 +19,7 @@
     </mat-card-content>
     <button class="cancel" mat-raised-button color="primary" (click)="router.navigateByUrl('contacts')">Cancel</button>
     </mat-card>
+  </div>
+<div *ngIf="!data">
+  <h1 style="text-align: center;">Not Found</h1>
+</div>
