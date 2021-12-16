@@ -3,12 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateContactsComponent } from './container/create_contacts/create-contacts/create-contacts.component';
 import { ListcontactsComponent } from './container/lists_of_contacts/listcontacts/listcontacts.component';
 import { ViewcontactComponent } from './container/view_contact/viewcontact/viewcontact.component';
+import { WelcomeComponent } from './container/welcome/welcome/welcome.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'contacts',
+    redirectTo: 'welcome',
     pathMatch: 'full'
+  },
+  {
+    path: 'welcome',
+    component: WelcomeComponent
   },
   {
     path: 'contacts',

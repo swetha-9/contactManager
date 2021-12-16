@@ -21,6 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UpdatecontactComponent } from './modal/updatecontact/updatecontact.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ViewcontactComponent } from './container/view_contact/viewcontact/viewcontact.component';
+import { WelcomeComponent } from './container/welcome/welcome/welcome.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ViewcontactComponent } from './container/view_contact/viewcontact/viewc
     CreateContactsComponent,
     DiaglogBoxComponent,
     UpdatecontactComponent,
-    ViewcontactComponent
+    ViewcontactComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { ViewcontactComponent } from './container/view_contact/viewcontact/viewc
     MatInputModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatToolbarModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

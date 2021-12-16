@@ -1,7 +1,17 @@
-<h1 class="header">Contact Manager</h1>
-<h3>Total Records - {{dataSource.length}}</h3>
-<div style="text-align: right;">
-  <button mat-raised-button color="primary" (click)="router.navigate(['createContacts'])">
+<mat-toolbar style="background-color: white;">
+  <img src= "assets/images/logo1.jpg" alt="logo" class="logo">
+  <span class="header">Contact Manager Lists</span>
+<span style="margin-left: auto; margin-right: 20px;">
+<button mat-raised-button color ="primary"(click)="router.navigate(['welcome'])">
+  <mat-icon>power_settings_new</mat-icon>Logout
+</button>
+</span>
+</mat-toolbar>
+<div [ngStyle]= "{'color': dataSource.length ? '#3f51b5' : 'red'}" style="font-size: 20px;">
+  {{ !dataSource.length ?
+  'No Record found' : 'Total Records - ' + dataSource.length }} </div>
+<div style="text-align: right; margin-top: 20px; margin-right: 10px">
+  <button mat-raised-button color ="primary" (click)="router.navigate(['createContacts'])">
     <mat-icon>add</mat-icon>Create Contact
   </button>
 </div>
