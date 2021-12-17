@@ -15,24 +15,64 @@ export class ContactmanagerService {
       contact_person: {
         contact_id: 1234,
         contact_person_id: 123,
+        salutation: 'Miss',
+        first_name: 'Swetha',
+        last_name: 'Ramesh',
+        email: 'swetha@gmai.com',
+        phone: 123457,
+        mobile: 1234567,
+        is_primary_contact: true,
+        skype: 'Zoho',
+        designation: 'Developer',
+        department: 'IT',
+        is_added_in_portal: true
+      }
+    },
+    {
+
+      code: 1,
+      message: 'success',
+      contact_person: {
+        contact_id: 1234,
+        contact_person_id: 123,
         salutation: 'Mr',
-        first_name: 'will',
-        last_name: 'smith',
+        first_name: 'Roman',
+        last_name: 'Reigns',
+        email: 'jhon@gmai.com',
+        phone: 12345,
+        mobile: 12345,
+        is_primary_contact: true,
+        skype: 'Zoho',
+        designation: 'Wrestler',
+        department: 'Media',
+        is_added_in_portal: false
+      }
+    },
+    {
+
+      code: 2,
+      message: 'success',
+      contact_person: {
+        contact_id: 1234,
+        contact_person_id: 123,
+        salutation: 'Miss',
+        first_name: 'Nancy',
+        last_name: 'John',
         email: 'ws@gmai.com',
         phone: 1234,
         mobile: 1234,
         is_primary_contact: true,
         skype: 'Zoho',
-        designation: 'Developer',
+        designation: 'Testing',
         department: 'IT',
-        is_added_in_portal: false
+        is_added_in_portal: true
       }
     }
   ];
   constructor() { }
 
   getContactList(): any {
-    if (this.mockList.length === 1 && !JSON.parse(localStorage.getItem('lists')) && !JSON.parse(localStorage.getItem('lists'))?.length) {
+    if (this.mockList.length === 3 && !JSON.parse(localStorage.getItem('lists')) && !JSON.parse(localStorage.getItem('lists'))?.length) {
       localStorage.setItem('lists', JSON.stringify(this.mockList));
     }
     return this.mockList;
